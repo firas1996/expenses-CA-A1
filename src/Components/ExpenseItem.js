@@ -1,13 +1,14 @@
 import React from "react";
 import "./ExpenseItem.css";
+import ExpenseDate from "./ExpenseDate";
 
-function ExpenseItem({ arg }) {
+function ExpenseItem({ title, date, price }) {
   return (
     <div className="expense-item">
-      <div>Date</div>
+      <ExpenseDate date={date} />
       <div className="expense-item__description">
-        <h2>{arg}</h2>
-        <div className="expense-item__price">Price</div>
+        <h2>{title}</h2>
+        <div className="expense-item__price">$ {price}</div>
       </div>
     </div>
   );
