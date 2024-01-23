@@ -6,7 +6,10 @@ function ExpenseItem({ title, date, price }) {
   const [myTitle, setMyTitle] = useState(title);
   const updateTitle = () => {
     console.log(myTitle);
-    setMyTitle("New Title !!!");
+    setMyTitle("New Title 1 !!!");
+    setMyTitle("New Title 2 !!!");
+    setMyTitle("New Title 3 !!!");
+    setMyTitle("New Title 4 !!!");
     console.log(myTitle);
   };
   return (
