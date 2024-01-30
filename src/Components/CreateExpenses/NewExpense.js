@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./NewExpense.css";
 
-const NewExpense = () => {
+const NewExpense = ({ getData }) => {
   //   const [title, setTitle] = useState("");
   //   const [price, setPrice] = useState("");
   //   const [date, setDate] = useState("");
@@ -28,6 +28,11 @@ const NewExpense = () => {
       return { ...prevState, date: event.target.value };
     });
   };
+  const handelAll = ({ target: { name, value } }) => {
+    setInputs((prevState) => {
+      return { ...prevState, [name]: value };
+    });
+  };
   const submitHandler = (event) => {
     event.preventDefault();
     const newExpenseData = {
@@ -36,7 +41,7 @@ const NewExpense = () => {
       price: inputs.price,
       date: new Date(inputs.date),
     };
-    console.log(newExpenseData);
+    getData(newExpenseData);
   };
   return (
     <div className="new-expense">
@@ -49,12 +54,19 @@ const NewExpense = () => {
               minLength="3"
               maxLength="20"
               type="text"
-              onChange={changeTitle}
+              name="title"
+              onChange={handelAll}
             />
           </div>
           <div className="new-expense__control">
             <label>Price</label>
-            <input type="number" step="0.01" min="0" onChange={changePrice} />
+            <input
+              type="number"
+              name="price"
+              step="0.01"
+              min="0"
+              onChange={handelAll}
+            />
           </div>
           <div className="new-expense__control">
             <label>Date</label>
@@ -62,7 +74,8 @@ const NewExpense = () => {
               type="date"
               min="2022-01-01"
               max="2025-12-31"
-              onChange={changeDate}
+              name="date"
+              onChange={handelAll}
             />
           </div>
         </div>
