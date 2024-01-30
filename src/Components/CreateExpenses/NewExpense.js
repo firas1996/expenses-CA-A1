@@ -12,13 +12,21 @@ const NewExpense = () => {
   });
   const changeTitle = (event) => {
     // setTitle(event.target.value);
-    setInputs({ ...inputs, title: event.target.value });
+    setInputs((prevState) => {
+      return { ...prevState, title: event.target.value };
+    });
   };
   const changePrice = (event) => {
     // setPrice(event.target.value);
+    setInputs((prevState) => {
+      return { ...prevState, price: event.target.value };
+    });
   };
   const changeDate = (event) => {
     // setDate(event.target.value);
+    setInputs((prevState) => {
+      return { ...prevState, date: event.target.value };
+    });
   };
   const submitHandler = (event) => {
     event.preventDefault();
