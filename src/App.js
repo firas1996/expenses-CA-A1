@@ -1,3 +1,4 @@
+import NewExpense from "./Components/CreateExpenses/NewExpense";
 import ExpenseItem from "./Components/ExpenseItem";
 import Expenses from "./Components/Expenses";
 
@@ -30,6 +31,7 @@ function App() {
   ];
   return (
     <div>
+      <NewExpense />
       {/* This is our first component */}
       <Expenses expenses={expensesData} />
     </div>
