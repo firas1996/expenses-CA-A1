@@ -2,6 +2,8 @@ import "./Expenses.css";
 import ExpenseItem from "./ExpenseItem";
 import ExpensesFilter from "./ExpensesFilter";
 import { useState } from "react";
+import Chart from "./Chart/Chart";
+import ChartData from "./Chart/ChartData";
 
 const Expenses = ({ expenses }) => {
   let years = new Set(expenses.map((item) => item.date.getFullYear()).sort());
@@ -16,12 +18,14 @@ const Expenses = ({ expenses }) => {
         filterValue={filterValue}
         handelFilter={setFilterValue}
       />
+      <ChartData expenses={results} />
       {results.map((expense) => {
         return (
           <ExpenseItem
             title={expense.title}
             date={expense.date}
             price={expense.price}
+            key={expense.id}
           />
         );
       })}
