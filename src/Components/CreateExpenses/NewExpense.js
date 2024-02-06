@@ -50,6 +50,7 @@ const NewExpense = ({ getData }) => {
           <div className="new-expense__control">
             <label>Title</label>
             <input
+              required
               placeholder="Title"
               minLength="3"
               maxLength="20"
@@ -61,6 +62,7 @@ const NewExpense = ({ getData }) => {
           <div className="new-expense__control">
             <label>Price</label>
             <input
+              required
               type="number"
               name="price"
               step="0.01"
@@ -71,6 +73,7 @@ const NewExpense = ({ getData }) => {
           <div className="new-expense__control">
             <label>Date</label>
             <input
+              required
               type="date"
               min="2022-01-01"
               max="2025-12-31"

@@ -6,7 +6,9 @@ import { useState } from "react";
 const Expenses = ({ expenses }) => {
   let years = new Set(expenses.map((item) => item.date.getFullYear()).sort());
   const [filterValue, setFilterValue] = useState([...years][0]);
-
+  const results = expenses.filter((item) => {
+    return item.date.getFullYear() == filterValue;
+  });
   return (
     <div className="expenses">
       <ExpensesFilter
@@ -14,7 +16,7 @@ const Expenses = ({ expenses }) => {
         filterValue={filterValue}
         handelFilter={setFilterValue}
       />
-      {expenses.map((expense) => {
+      {results.map((expense) => {
         return (
           <ExpenseItem
             title={expense.title}
