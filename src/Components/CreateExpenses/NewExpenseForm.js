@@ -41,6 +41,11 @@ const NewExpenseForm = ({ getData, setShowNew }) => {
       date: new Date(inputs.date),
     };
     getData(newExpenseData);
+    setInputs({
+      title: "",
+      price: "",
+      date: "",
+    });
   };
   return (
     <form onSubmit={submitHandler}>
@@ -55,6 +60,7 @@ const NewExpenseForm = ({ getData, setShowNew }) => {
             type="text"
             name="title"
             onChange={handelAll}
+            value={inputs.title}
           />
         </div>
         <div className="new-expense__control">
@@ -66,6 +72,7 @@ const NewExpenseForm = ({ getData, setShowNew }) => {
             step="0.01"
             min="0"
             onChange={handelAll}
+            value={inputs.price}
           />
         </div>
         <div className="new-expense__control">
@@ -77,6 +84,7 @@ const NewExpenseForm = ({ getData, setShowNew }) => {
             max="2025-12-31"
             name="date"
             onChange={handelAll}
+            value={inputs.date}
           />
         </div>
       </div>
